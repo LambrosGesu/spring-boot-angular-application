@@ -1,0 +1,12 @@
+.app-sidenav-container {
+  flex: 1;
+}
+.mat-drawer.mat-drawer-side {
+  width: 300px;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

@@ -1,0 +1,30 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box" >
+    <mat-card-header>
+      <mat-card-title color="primary">Sign In</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="loginForm">
+      <mat-card-content>
+        <mat-form-field class="example-full-width" >
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-raised-button type="button" color="primary" class="btn-block" (click)="onSubmit()">Sign in</button>
+    </form>
+    <div class="row mt-2">
+      <button mat-button>Register</button>
+      <span style="flex: 1 1 auto;"></span>
+      <button mat-button>Become a host</button>
+    </div>
+  </mat-card>
+</div>

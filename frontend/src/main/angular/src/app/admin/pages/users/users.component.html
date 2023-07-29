@@ -1,0 +1,16 @@
+<div *ngFor="let user of users" style="display: flex;margin: 10px; flex-direction: column;">
+  <mat-card style="margin: 10px;">
+    <div class="user-card">
+      <img mat-card-sm-image class="example-header-image" alt="no image" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+      <mat-card-header>
+        <mat-card-title>{{user.firstname}} {{user.lastname}}</mat-card-title>
+        <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <span class="home-toolbar-spacer"></span>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary">APPROVE</button>
+        <button mat-raised-button color="warn">DELETE</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

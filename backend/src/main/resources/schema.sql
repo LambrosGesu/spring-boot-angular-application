@@ -1,0 +1,29 @@
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS units;
+-- DROP TABLE IF EXISTS reviews;
+--
+--
+-- CREATE TABLE USERS (
+--   id NUMBER AUTO_INCREMENT  PRIMARY KEY,
+--   username VARCHAR(250) NOT NULL,
+--   password VARCHAR(250) NOT NULL,
+--   role VARCHAR(25) NOT NULL
+-- );
+--
+-- CREATE TABLE APARTMENTS (
+--    id NUMBER AUTO_INCREMENT  PRIMARY KEY,
+--    image VARCHAR(2083) NOT NULL,
+--    region VARCHAR(26) NOT NULL,
+--    description VARCHAR(255) NOT NULL,
+--    cancellation_policy BOOLEAN NOT NULL,
+--    price INT NOT NULL,
+--    score FLOAT(2) NOT NULL
+-- );
+--
+-- CREATE TABLE REVIEWS (
+--    id NUMBER AUTO_INCREMENT  PRIMARY KEY,
+--    comment VARCHAR(255),
+--    rate INT NOT NULL,
+--    apartment_id NUMBER NOT NULL,
+--    FOREIGN KEY (apartment_id) REFERENCES APARTMENTS(id)
+-- );

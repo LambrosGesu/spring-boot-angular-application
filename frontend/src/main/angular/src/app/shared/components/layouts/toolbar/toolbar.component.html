@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" #toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="clickMenuButton()">menu</mat-icon>
+    </button>
+    <button mat-button (click)="onRegister()">Register</button>
+    <button mat-button (click)="onLogin()">Login</button>
+      <span class="home-toolbar-spacer"></span>
+      <div class="searchbar">
+        <mat-form-field floatLabel="never">
+          <input matInput placeholder="Search destinations">
+        </mat-form-field>
+        <mat-form-field floatLabel="never">
+          <mat-date-range-input [rangePicker]="picker" [formGroup]="dateRange">
+            <input matStartDate formControlName="start" placeholder="Start Date">
+            <input matEndDate formControlName="end" placeholder="End Date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0">
+          <div matSuffix class="wrapper-indicator"></div>
+        </mat-form-field>
+        <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+      </div>
+      <span class="home-toolbar-spacer"></span>
+      <button mat-button (click)="onHostRegister()">Become A Host</button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
