@@ -5,6 +5,7 @@ import gr.apartment.webapp.payload.SignUpRequest;
 import gr.apartment.webapp.service.AuthenticationService;
 import gr.apartment.webapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +29,9 @@ public class AuthController {
     }
 
     @PostMapping("/signUp")
-    public String registerUser(@RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(@RequestBody SignUpRequest signUpRequest) {
         userService.createAccount(signUpRequest);
-        return "success";
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 }

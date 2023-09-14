@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       username: [{value: null, disabled:false}, [Validators.required]],
+      firstname: [{value: null, disabled:false}, [Validators.required]],
+      lastname: [{value: null, disabled:false}, [Validators.required]],
       password: [{value: null, disabled:false}, [Validators.required]],
       email:[{value: null, disabled:false},
         [Validators.required,
@@ -32,11 +34,13 @@ export class RegisterComponent implements OnInit {
   public onCreateAccount(){
     let email = this.registerForm.get('email')?.value;
     let username = this.registerForm.get('username')?.value;
+    let firstname = this.registerForm.get('firstname')?.value;
+    let lastname = this.registerForm.get('lastname')?.value;
     let password = this.registerForm.get('password')?.value;
     console.log(email)
     console.log(username)
     console.log(password)
-    let createAccountModel: CreateAccountModel = new CreateAccountModel(username, password, email)
+    let createAccountModel: CreateAccountModel = new CreateAccountModel(username, firstname, lastname, password, email)
     this.homePageService.createUserAccount(createAccountModel).subscribe(result=>{
       console.log(result);
     });

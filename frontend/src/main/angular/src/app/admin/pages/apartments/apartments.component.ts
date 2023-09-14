@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminService} from "../../services/admin.service";
+import {Apartment} from "../../../home/models/apartment";
 
 @Component({
   selector: 'admin-apartments',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApartmentsComponent implements OnInit {
 
-  constructor() { }
+  apartments: Apartment[] = [];
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.fetchApartments().subscribe(items => {
+      this.apartments = items;
+    })
   }
 
 }

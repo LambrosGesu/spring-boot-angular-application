@@ -27,7 +27,7 @@ public class Apartment {
     private String title;
 
 //    @ManyToOne (fetch = FetchType.LAZY)
-    @Column(name ="HOST_ID", nullable = false)
+    @Column(name ="HOST_ID")
     private Long hostId;
 
     @Column(name = "COUNTRY", nullable = false, length = MAX_LENGTH)
@@ -51,10 +51,10 @@ public class Apartment {
     @Column(name = "SCORE", length = 2)
     private Float score;
 
-    @Column(name = "APARTMENT_LAT", nullable = false)
+    @Column(name = "APARTMENT_LAT")
     private String latitude;
 
-    @Column(name = "APARTMENT_LONG", nullable = false)
+    @Column(name = "APARTMENT_LONG")
     private String longitude;
 
     @Column(name = "NUM_OF_BEDS")

@@ -37,10 +37,10 @@ public class User {
     @Column(name = "ROLE", nullable = false, length = 25)
     private UserRole role;
 
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRSTNAME", nullable = false)
     private String firstname;
 
-    @Column(name = "LASTNAME")
+    @Column(name = "LASTNAME", nullable = false)
     private String lastname;
 
     @Column(name = "DATE_OF_BIRTH")

@@ -28,6 +28,8 @@ import { UsersComponent } from './admin/pages/users/users.component';
 import {SidenavComponent} from "./shared/components/layouts/sidenav/sidenav.component";
 import { ApartmentsComponent } from './admin/pages/apartments/apartments.component';
 import { BookingsComponent } from './admin/pages/bookings/bookings.component';
+import { NewApartmentComponent } from './home/pages/new-apartment/new-apartment.component';
+import { MatRadioModule } from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { BookingsComponent } from './admin/pages/bookings/bookings.component';
     UsersComponent,
     SidenavComponent,
     ApartmentsComponent,
-    BookingsComponent
+    BookingsComponent,
+    NewApartmentComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,7 +62,8 @@ import { BookingsComponent } from './admin/pages/bookings/bookings.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatRadioModule
   ],
   providers: [
     HomePageService,

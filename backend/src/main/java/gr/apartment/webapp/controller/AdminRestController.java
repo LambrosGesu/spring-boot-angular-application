@@ -1,8 +1,10 @@
 package gr.apartment.webapp.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import gr.apartment.webapp.dto.ApartmentDTO;
 import gr.apartment.webapp.dto.BookInfoDTO;
 import gr.apartment.webapp.dto.UserDTO;
+import gr.apartment.webapp.service.ApartmentService;
 import gr.apartment.webapp.service.BookingService;
 import gr.apartment.webapp.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -20,11 +22,13 @@ import java.util.List;
 public class AdminRestController {
 
     private final UserService userService;
+    private final ApartmentService apartmentService;
     private final BookingService bookingService;
 
     @Autowired
-    public AdminRestController(UserService userService, BookingService bookingService) {
+    public AdminRestController(UserService userService, ApartmentService apartmentService, BookingService bookingService) {
         this.userService = userService;
+        this.apartmentService = apartmentService;
         this.bookingService = bookingService;
     }
 
@@ -62,9 +66,15 @@ public class AdminRestController {
         return ResponseEntity.ok().body(null);
     }
 
+    // --------------------------- Apartments ----------------------------
+    @GetMapping("/apartments")
+    public ResponseEntity<List<ApartmentDTO>> getAllApartments() {
+        return ResponseEntity.ok().body(apartmentService.findAll());
+    }
+
     // --------------------------- Bookings ----------------------------
     @GetMapping("/bookings")
-    public ResponseEntity<List<BookInfoDTO>> returnAllBookings(){
+    public ResponseEntity<List<BookInfoDTO>> getAllBookings(){
         return ResponseEntity.ok().body(bookingService.findAll());
     }
 

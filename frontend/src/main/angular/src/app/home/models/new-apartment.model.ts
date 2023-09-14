@@ -1,4 +1,6 @@
-export interface ApartmentDTO{
+import {BookInfoDTO} from "./apartment";
+
+export class NewApartment {
   id: number;
   hostId: number;
   title: string;
@@ -30,20 +32,18 @@ export interface ApartmentDTO{
   ac: boolean;
   pets: boolean;
   events: boolean;
-}
 
-export interface BookInfoDTO{
-  reservationId: number;
-  bookedHomeId: number;
-  dateIn: string;
-  dateOut: string;
-  isBooked: number;
-  userIdBooked: number;
-  userNameBooked: string;
-  hostReviewStars: number;
-  hostReviewDescription: string;
-  homeReviewStars: number;
-  homeReviewDescription: string;
+
+  constructor(hostId: number, title: string, country: string, region: string, cancellation_policy: boolean, price: number, address: string, description: string) {
+    this.hostId = hostId;
+    this.title = title;
+    this.country = country;
+    this.region = region;
+    this.cancellation_policy = cancellation_policy;
+    this.price = price;
+    this.address = address;
+    this.description = description;
+  }
 }
 
 

@@ -6,11 +6,13 @@ import {LoginComponent} from "./home/pages/login/login.component";
 import {RegisterComponent} from "./home/pages/register/register.component";
 import {ApartmentsComponent} from "./admin/pages/apartments/apartments.component";
 import {BookingsComponent} from "./admin/pages/bookings/bookings.component";
+import {NewApartmentComponent} from "./home/pages/new-apartment/new-apartment.component";
 
 const routes: Routes = [
   {path: '',  component: HomeComponent},
   {path: 'login',  component: LoginComponent},
   {path: 'register',  component: RegisterComponent},
+  {path: 'create-apartment',  component: NewApartmentComponent},
   {path: 'admin',  component: UsersComponent},
   {path: 'admin/users',  component: UsersComponent},
   {path: 'admin/apartments',  component: ApartmentsComponent},

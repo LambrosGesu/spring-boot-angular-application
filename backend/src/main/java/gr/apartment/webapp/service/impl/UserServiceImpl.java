@@ -56,6 +56,8 @@ public class UserServiceImpl implements UserService {
     private User buildUserFromSignUpRequest(SignUpRequest signUpRequest) {
         User user = new User();
         user.setUsername(signUpRequest.getUsername());
+        user.setFirstname(signUpRequest.getFirstname());
+        user.setLastname(signUpRequest.getLastname());
         user.setPassword(signUpRequest.getPassword());
         user.setEmail(signUpRequest.getEmail());
         user.setRole(UserRole.USER);
