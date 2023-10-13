@@ -1,5 +1,16 @@
-<div style="display: flex;column-gap: 25px; flex-direction: row;">
-  <div *ngFor="let apartment of apartments">
-    <apartment [apartmentInfo]="apartment"></apartment>
+<div>
+  <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+    <div *ngFor="let apartment of apartments" style="padding: 15px;">
+      <apartment [apartmentInfo]="apartment"></apartment>
+    </div>
   </div>
+  <mat-paginator #paginator
+                 class="demo-paginator"
+                 (page)="handlePageEvent($event)"
+                 [length]="totalApartments"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[5, 10, 25]"
+                 [pageIndex]="pageIndex"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>

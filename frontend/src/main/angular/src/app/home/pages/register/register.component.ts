@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HomePageService} from "../../services/home-page.service";
 import {CreateAccountModel} from "../../models/create-account.model";
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
@@ -15,7 +17,8 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private homePageService: HomePageService) { }
+              private homePageService: HomePageService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -42,8 +45,22 @@ export class RegisterComponent implements OnInit {
     console.log(password)
     let createAccountModel: CreateAccountModel = new CreateAccountModel(username, firstname, lastname, password, email)
     this.homePageService.createUserAccount(createAccountModel).subscribe(result=>{
+      this.showLoginSuccessMessage('Register successful');
       console.log(result);
     });
 
+  }
+
+  showLoginSuccessMessage(message: string) {
+    // const message = 'Login successful';
+    const color = 'success-growl-color-class'; // Add your custom color class
+    const horizontalPosition: MatSnackBarHorizontalPosition = 'end'; // Adjust as needed
+    const verticalPosition: MatSnackBarVerticalPosition = 'bottom'; // Adjust as needed
+    this.snackBar.open(message, 'Close', {
+      duration: 80000, // Set the duration in milliseconds
+      panelClass: [color],
+      horizontalPosition: horizontalPosition,
+      verticalPosition: verticalPosition,
+    });
   }
 }

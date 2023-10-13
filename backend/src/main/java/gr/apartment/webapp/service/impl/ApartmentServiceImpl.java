@@ -7,6 +7,8 @@ import gr.apartment.webapp.mappers.ApartmentMapper;
 import gr.apartment.webapp.repository.ApartmentRepository;
 import gr.apartment.webapp.service.ApartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,11 +25,14 @@ public class ApartmentServiceImpl implements ApartmentService {
     ApartmentMapper apartmentMapper;
 
     @Override
-    public List<ApartmentDTO> findAll() {
-        return apartmentRepository.findAll()
-                .stream()
-                .map(a ->apartmentMapper.mapApartmentToApartmentDTO(a))
-                .collect(Collectors.toList());
+    public Page<ApartmentDTO> findAll(Pageable pageable) {
+        Page<Apartment> apartmentsPage = apartmentRepository.findAll(pageable);
+        return apartmentsPage.map(a -> apartmentMapper.mapApartmentToApartmentDTO(a));
+    }
+
+    @Override
+    public ApartmentDTO findById(String id) {
+        return apartmentRepository.findById(Long.valueOf(id)).map(a ->apartmentMapper.mapApartmentToApartmentDTO(a)).orElse(null);
     }
 
     @Override

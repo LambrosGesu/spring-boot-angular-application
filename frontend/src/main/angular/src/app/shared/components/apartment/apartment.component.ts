@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Apartment} from "../../../home/models/apartment";
+import {Apartment} from "../../models/apartment";
+import {MatDialog} from "@angular/material/dialog";
+import {ApartmentDetailsComponent} from "../apartment-details/apartment-details.component";
 
 @Component({
   selector: 'apartment',
@@ -11,9 +13,26 @@ export class ApartmentComponent implements OnInit {
   @Input()
   public apartmentInfo:Apartment;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  // openApartmentDetailsModal() {
+  //   this.dialog.open(ApartmentDetailsComponent,{
+  //     data: { apartmentInfoObject: this.apartmentInfo },
+  //     width: '100%',
+  //     minHeight: 'calc(100vh - 90px)',
+  //     height : 'auto'
+  //   })
+  // }
+  //
+  // openApartmentReservationModal() {
+  //   this.dialog.open(ApartmentDetailsComponent,{
+  //     data: { apartmentInfoObject: this.apartmentInfo },
+  //     width: '100%',
+  //     minHeight: 'calc(100vh - 90px)',
+  //     height : 'auto'
+  //   })
+  // }
 }

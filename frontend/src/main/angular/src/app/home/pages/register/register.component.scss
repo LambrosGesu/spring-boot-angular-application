@@ -12,3 +12,19 @@
   margin: 15em auto;
 }
 
+.success-growl-color-class {
+  background-color: #008e00;
+  color: #ffffff;
+  min-height: 70px!important;
+  margin-bottom: 100px!important;
+}
+
+.mat-simple-snackbar-action button {
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.mat-simple-snackbar-action button:hover {
+  background-color: #45a049;
+}
+

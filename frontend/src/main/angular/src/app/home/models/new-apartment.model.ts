@@ -1,4 +1,4 @@
-import {BookInfoDTO} from "./apartment";
+import {BookInfo} from "../../shared/models/apartment";
 
 export class NewApartment {
   id: number;
@@ -6,7 +6,7 @@ export class NewApartment {
   title: string;
   country: string;
   region: string;
-  reservations: BookInfoDTO[];
+  reservations: BookInfo[];
   cancellation_policy: boolean;
   price: number;
   address: string;

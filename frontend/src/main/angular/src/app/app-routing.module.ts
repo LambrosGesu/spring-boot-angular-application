@@ -7,6 +7,7 @@ import {RegisterComponent} from "./home/pages/register/register.component";
 import {ApartmentsComponent} from "./admin/pages/apartments/apartments.component";
 import {BookingsComponent} from "./admin/pages/bookings/bookings.component";
 import {NewApartmentComponent} from "./home/pages/new-apartment/new-apartment.component";
+import {ApartmentDetailsComponent} from "./shared/components/apartment-details/apartment-details.component";
 
 const routes: Routes = [
   {path: '',  component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'admin',  component: UsersComponent},
   {path: 'admin/users',  component: UsersComponent},
   {path: 'admin/apartments',  component: ApartmentsComponent},
+  {path: 'apartment/:id',  component: ApartmentDetailsComponent},
   {path: 'admin/bookings',  component: BookingsComponent},
 ];
 

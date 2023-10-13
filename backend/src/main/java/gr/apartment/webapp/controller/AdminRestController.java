@@ -9,6 +9,8 @@ import gr.apartment.webapp.service.BookingService;
 import gr.apartment.webapp.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
@@ -68,8 +70,15 @@ public class AdminRestController {
 
     // --------------------------- Apartments ----------------------------
     @GetMapping("/apartments")
-    public ResponseEntity<List<ApartmentDTO>> getAllApartments() {
-        return ResponseEntity.ok().body(apartmentService.findAll());
+    public ResponseEntity<Page<ApartmentDTO>> getAllApartments(Pageable pageable) {
+        Page<ApartmentDTO> apartmentsPage = apartmentService.findAll(pageable);
+        return ResponseEntity.ok().body(apartmentsPage);
+    }
+
+    @GetMapping("/apartment/{id}")
+    public ResponseEntity<ApartmentDTO> getApartmentById(@PathVariable("id") String id) throws JsonProcessingException {
+        ApartmentDTO apartmentDTO = new ModelMapper().map(apartmentService.findById(id), ApartmentDTO.class);
+        return ResponseEntity.ok().body(apartmentDTO);
     }
 
     // --------------------------- Bookings ----------------------------

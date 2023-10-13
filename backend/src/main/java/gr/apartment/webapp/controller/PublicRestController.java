@@ -4,6 +4,8 @@ import gr.apartment.webapp.dto.ApartmentDTO;
 import gr.apartment.webapp.dto.SearchApartmentCriteriaDTO;
 import gr.apartment.webapp.service.ApartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +20,9 @@ public class PublicRestController {
     ApartmentService apartmentService;
 
     @GetMapping("/apartments")
-    public ResponseEntity<List<ApartmentDTO>> getAllApartments() {
-        return ResponseEntity.ok().body(apartmentService.findAll());
+    public ResponseEntity<Page<ApartmentDTO>> getAllApartments(Pageable pageable) {
+        Page<ApartmentDTO> apartmentsPage = apartmentService.findAll(pageable);
+        return ResponseEntity.ok().body(apartmentsPage);
     }
 
     @GetMapping("/apartments/filtered")

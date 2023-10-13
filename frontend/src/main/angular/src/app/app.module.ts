@@ -30,6 +30,10 @@ import { ApartmentsComponent } from './admin/pages/apartments/apartments.compone
 import { BookingsComponent } from './admin/pages/bookings/bookings.component';
 import { NewApartmentComponent } from './home/pages/new-apartment/new-apartment.component';
 import { MatRadioModule } from "@angular/material/radio";
+import { ApartmentDetailsComponent } from './shared/components/apartment-details/apartment-details.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -44,27 +48,31 @@ import { MatRadioModule } from "@angular/material/radio";
     SidenavComponent,
     ApartmentsComponent,
     BookingsComponent,
-    NewApartmentComponent
+    NewApartmentComponent,
+    ApartmentDetailsComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSidenavModule,
-    MatListModule,
-    MatRadioModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSidenavModule,
+        MatListModule,
+        MatRadioModule,
+        MatDialogModule,
+        MatPaginatorModule, // Required for animations
+        MatSnackBarModule
+    ],
   providers: [
     HomePageService,
     SideNavService
