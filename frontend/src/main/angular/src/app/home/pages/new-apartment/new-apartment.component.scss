@@ -1,0 +1,23 @@
+.create-apartment-wrapper {
+  max-width: 30%;
+  width: 100%;
+  margin: 15em auto;
+}
+.mat-card {
+  text-align: center;
+  padding: 60px;
+}
+
+.mat-form-field {
+  display: block;
+}
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

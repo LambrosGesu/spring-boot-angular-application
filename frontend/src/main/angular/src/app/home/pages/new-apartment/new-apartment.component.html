@@ -1,0 +1,46 @@
+
+<div class="create-apartment-wrapper">
+
+  <div class="row">
+    <mat-card class="box" style="margin-top: 2%; border-radius: 2px; text-align: center;">
+      <form class="example-form" [formGroup]="createApartmentForm">
+        <mat-card-header>
+          <mat-card-title color="primary" style="font-weight: bold;align-content: center; text-decoration: none; padding-bottom: 20px">Create an Apartment</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" style="color: #0d0d0d">
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" style="color: #0d0d0d">
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Region</mat-label>
+            <input matInput formControlName="region" style="color: #0d0d0d">
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" style="color: #0d0d0d">
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Apartment Description</mat-label>
+            <textarea matInput formControlName="description" style="color: #0d0d0d"></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 400px">
+            <mat-label>Price per night</mat-label>
+            <input matInput formControlName="price" style="color: #0d0d0d">
+          </mat-form-field>
+          <label>Cancellation policy</label>
+          <mat-radio-group class="example-radio-group" aria-label="Select an option" formControlName="cancellation_policy">
+            <mat-radio-button class="example-radio-button" [value]="1">Yes</mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="0">No</mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+        <button mat-raised-button color="primary" class="btn-block" (click)="onCreateApartment($event)">Create your Apartment</button>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
